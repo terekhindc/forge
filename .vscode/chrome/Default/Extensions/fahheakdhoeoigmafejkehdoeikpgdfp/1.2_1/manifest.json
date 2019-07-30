@@ -1,0 +1,22 @@
+{
+   "background": {
+      "scripts": [ "background.js", "FireBreathPromise.js", "wyrmhole.js", "firewyrm.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "BCO System Plugin",
+   "icons": {
+      "128": "icon-128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA271vI0tT5Lu21d5zaPhPQ/0bo/FafiTvCWVZ316brN5AZROlA5sXCe974ftZWXpKNMrMuSMzvmPfESkd6RpFPnUgJoy1ohDZOiv17RV9pbmoA0F3ChXFNLR1S42PIsIcA6sUZj8c6vva8bTgay7YG48Qo7q3K+gsluJy6CE4AwAin9lvvqoDWST9L6tlnGiGraK6L+MxdQT72YzV/UPsnTtxh9dJx1BXkIBQ15V1yPpI+nnDCEkXDy4yJJetUbDfp8rGySs4UyZFP5DvaPHzdGagZO8ydxD2eT6t3QflCfc5CzjH4FvWAO6n0JiN0fAkP+uIGtUjMJYc+8sLX01kIwIDAQAB",
+   "manifest_version": 2,
+   "name": "Bco Plugin Adapter",
+   "permissions": [ "nativeMessaging" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2",
+   "web_accessible_resources": [ "wyrmhole.js", "wyrmhole-page.js", "FireBreathPromise.js", "firewyrm.js" ]
+}

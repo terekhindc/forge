@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "compounds": [
+        {
+           "name": "Full-Stack",
+           "configurations": ["Launch Program", "Launch Chrome"]
+        }
+     ],
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceRoot}/public",
+            "userDataDir": "${workspaceRoot}/.vscode/chrome"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/server.js"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Port",
+            "address": "localhost",
+            "port": 5858
+        }
+    ]
+}
