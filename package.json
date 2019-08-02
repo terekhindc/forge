@@ -1,6 +1,6 @@
 {
-  "name": "viewer-walkthrough-online.viewer",
-  "version": "2.0.0",
+  "name": "nwdmport",
+  "version": "1.0.0",
   "description": "Code sample for the Forge Viewer API",
   "main": "start.js",
   "scripts": {
