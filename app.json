@@ -1,0 +1,17 @@
+{
+  "name": "nwd.importer.vr",
+  "description": "A Node.js server to create translate 2D/3D models to the Autodesk Viewer format without the need to create a server yourself",
+  "repository": "https://github.com/vrcorpru/forge",
+  "keywords": [
+    "express",
+    "framework",
+    "lmv",
+    "web",
+    "rest",
+    "restful",
+    "router",
+    "app",
+    "api"
+  ],  
+  "success_url": "/"
+}

@@ -1,28 +1,57 @@
 {
-  "name": "nwdmport",
-  "version": "1.0.0",
-  "description": "Code sample for the Forge Viewer API",
-  "main": "start.js",
+  "name": "models.autodesk.io",
+  "description": "A Node.js server to create translate 2D/3D models to the Autodesk Viewer format without the need to create a server yourself",
+  "homepage": "http://around-the-corner.typepad.com/",
+  "version": "1.2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyrillef/models.autodesk.io"
+  },
+  "bugs": {
+    "url": "https://github.com/cyrillef/models.autodesk.io/issues"
+  },
+  "author": "Cyrille Fauvel",
+  "contributors": [
+    "Cyrille Fauvel <cyrille@autodesk.com>"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 9.5.0",
+    "npm": ">= 6.2.0"
+  },
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "test": "node_modules/.bin/mocha --require test/support/env --reporter spec --bail --check-leaks test/"
   },
   "keywords": [
-    "2-legged",
-    "auth",
-    "app",
+    "express",
+    "framework",
+    "lmv",
+    "forge",
+    "autodesk",
     "web",
-    "tutorial",
-    "sample"
+    "rest",
+    "restful",
+    "router",
+    "app",
+    "api"
   ],
-  "author": "Autodesk (www.autodesk.com)",
-  "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "multer": "^1.4.0"
+    "body-parser": "*",
+    "connect-multiparty": "^2.2.0",
+    "crypto": "0.0.3",
+    "express": "*",
+    "forge-apis": "^0.4.4",
+    "gen-uid": "*",
+    "node": "^12.7.0",
+    "serve-favicon": "*"
   },
   "devDependencies": {
-    "eslint": "^5.0.1"
-  }
+    "chai": "^4.2.0",
+    "expect.js": "*",
+    "mocha": "*",
+    "should": "^13.2.3",
+    "supertest": "^3.3.0"
+  },
+  "optionalDependencies": {}
 }
