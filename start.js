@@ -30,8 +30,8 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/www'));
 
 // This is for web server to start listening to port 3000
-var port = process.env.PORT || 3000;
-app.set('port', port);
+var port = process.env.PORT || 8080;
+app.set('port', 3000);
 var server = app.listen(app.get('port'), function () {
     console.log('Server listening on port ' + server.address().port);
 });
@@ -104,7 +104,7 @@ app.get('/api/forge/oauth/public', function (req, res) {
 });
 
 // Buckey key and Policy Key for OSS
-const bucketKey = FORGE_CLIENT_ID.toString().toLowerCase() + '_tutorial_bucket'; // Prefix with your ID so the bucket key is unique across all buckets on all other accounts
+const bucketKey = FORGE_CLIENT_ID.toLowerCase() + '_tutorial_bucket'; // Prefix with your ID so the bucket key is unique across all buckets on all other accounts
 const policyKey = 'transient'; // Expires in 24hr
 
 // Route /api/forge/datamanagement/bucket/create
@@ -171,12 +171,15 @@ String.prototype.toBase64 = function () {
 var multer = require('multer');         // To handle file upload
 var upload = multer({ dest: 'tmp/' }); // Save file into local /tmp folder
 
-// Route /api/forge/datamanagement/bucket/upload
+const followRedirects = require('follow-redirects');
+followRedirects.maxRedirects = 10;
+followRedirects.maxBodyLength = 500 * 1024 * 1024 * 1024;
+
 app.post('/api/forge/datamanagement/bucket/upload', upload.single('fileToUpload'), function (req, res) {
-    var fs = require('fs'); // Node.js File system for reading files
+    var fs = require('fs'); // Node.js File system for reading files    
     fs.readFile(req.file.path, function (err, filecontent) {
         Axios({
-            method: 'PUT',
+            method: 'PUT',            
             url: 'https://developer.api.autodesk.com/oss/v2/buckets/' + encodeURIComponent(bucketKey) + '/objects/' + encodeURIComponent(req.file.originalname),
             headers: {
                 Authorization: 'Bearer ' + access_token,
@@ -199,7 +202,6 @@ app.post('/api/forge/datamanagement/bucket/upload', upload.single('fileToUpload'
     });
 });
 
-// Route /api/forge/modelderivative
 app.get('/api/forge/modelderivative/:urn', function (req, res) {
     var urn = req.params.urn;
     var format_type = 'svf';
